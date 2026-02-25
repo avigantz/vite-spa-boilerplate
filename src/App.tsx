@@ -56,6 +56,85 @@ const STEPS: Step[] = [
   },
 ]
 
+interface Stat {
+  value: string
+  label: string
+}
+
+const STATS: Stat[] = [
+  { value: '40,000+', label: 'Pioneers on Waitlist' },
+  { value: '98.7%',   label: 'Intent Accuracy' },
+  { value: '<50 ms',  label: 'Thought-to-Action' },
+  { value: '5 min',   label: 'Calibration Time' },
+]
+
+interface UseCase {
+  icon: string
+  title: string
+  body: string
+}
+
+const USE_CASES: UseCase[] = [
+  {
+    icon: '✍️',
+    title: 'Compose Without Typing',
+    body: 'Draft emails, messages, and documents by simply thinking them. BrainWave transcribes at up to 180 words per minute — faster than most people type.',
+  },
+  {
+    icon: '🏠',
+    title: 'Command Your Space',
+    body: 'Dim lights, lock doors, play music, adjust temperature — your smart home responds the moment you think it. No voice, no touch, no delay.',
+  },
+  {
+    icon: '🎮',
+    title: 'Dominate in Gaming',
+    body: 'Sub-50 ms neural inputs eliminate controller lag entirely. React faster, execute with pinpoint precision — hardware can\'t keep up with you anymore.',
+  },
+  {
+    icon: '♿',
+    title: 'Restore Independence',
+    body: 'For people with mobility challenges, BrainWave restores full digital agency. Communicate, create, and navigate the web — with thought alone.',
+  },
+  {
+    icon: '🎨',
+    title: 'Capture Creative Flow',
+    body: 'Ideas vanish in the gap between thought and keyboard. BrainWave captures them the instant they spark — so your creativity arrives exactly as imagined.',
+  },
+  {
+    icon: '🩺',
+    title: 'Hands-Free Operation',
+    body: 'Surgeons, pilots, and field engineers can access information, log data, and control systems without breaking sterile or safety protocols.',
+  },
+]
+
+interface Testimonial {
+  quote: string
+  name: string
+  role: string
+  initials: string
+}
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    quote: 'I composed a 600-word report on my commute without touching my phone. It felt like having a superpower I didn\'t know I was missing.',
+    name: 'Marcus T.',
+    role: 'Beta Tester · Software Engineer',
+    initials: 'MT',
+  },
+  {
+    quote: 'As someone with ALS, BrainWave gave me back a kind of communication I thought I\'d lost. I can\'t overstate what that means to my family and me.',
+    name: 'Sarah K.',
+    role: 'Early Access · Accessibility Advocate',
+    initials: 'SK',
+  },
+  {
+    quote: 'Calibration took 4 minutes. By minute 5 I was controlling my entire smart home from the couch — just by thinking. I laughed out loud.',
+    name: 'James R.',
+    role: 'Beta Tester · Product Designer',
+    initials: 'JR',
+  },
+]
+
 /* ============================================================
    NavBar
    ============================================================ */
@@ -66,6 +145,7 @@ function NavBar() {
         <span className="navbar__logo gradient-text">BrainWave AI</span>
         <ul className="navbar__links">
           <li><a href="#features">Features</a></li>
+          <li><a href="#use-cases">Use Cases</a></li>
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#preorder">Pre-Order</a></li>
         </ul>
@@ -180,6 +260,91 @@ function HowItWorksSection() {
 }
 
 /* ============================================================
+   Stats Bar
+   ============================================================ */
+function StatsBar() {
+  return (
+    <div className="stats-bar">
+      <div className="container">
+        <div className="stats-bar__grid">
+          {STATS.map((stat) => (
+            <div className="stats-bar__item" key={stat.label}>
+              <span className="stats-bar__value">{stat.value}</span>
+              <span className="stats-bar__label">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ============================================================
+   Use Cases Section
+   ============================================================ */
+function UseCasesSection() {
+  return (
+    <section className="use-cases" id="use-cases">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-label">What You Can Do</span>
+          <h2 className="section-title">
+            What Will You<br />
+            <span className="gradient-text">Think Next?</span>
+          </h2>
+          <p className="section-subtitle">
+            From the mundane to the miraculous — BrainWave reshapes every human-computer interaction.
+          </p>
+        </div>
+        <div className="use-cases__grid">
+          {USE_CASES.map((useCase) => (
+            <div className="use-case-card" key={useCase.title}>
+              <span className="use-case-card__icon">{useCase.icon}</span>
+              <h3 className="use-case-card__title">{useCase.title}</h3>
+              <p className="use-case-card__body">{useCase.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ============================================================
+   Testimonials Section
+   ============================================================ */
+function TestimonialsSection() {
+  return (
+    <section className="testimonials">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-label">Early Access</span>
+          <h2 className="section-title">
+            Heard From Our<br />
+            <span className="gradient-text">Pioneers</span>
+          </h2>
+        </div>
+        <div className="testimonials__grid">
+          {TESTIMONIALS.map((t) => (
+            <div className="testimonial-card" key={t.name}>
+              <span className="testimonial-card__quote-mark">"</span>
+              <p className="testimonial-card__quote">{t.quote}</p>
+              <div className="testimonial-card__author">
+                <div className="testimonial-card__avatar">{t.initials}</div>
+                <div>
+                  <p className="testimonial-card__name">{t.name}</p>
+                  <p className="testimonial-card__role">{t.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ============================================================
    Pre-Order CTA Section
    ============================================================ */
 function PreOrderSection() {
@@ -231,8 +396,11 @@ function App() {
       <NavBar />
       <main>
         <HeroSection />
+        <StatsBar />
         <FeaturesSection />
+        <UseCasesSection />
         <HowItWorksSection />
+        <TestimonialsSection />
         <PreOrderSection />
       </main>
       <Footer />
