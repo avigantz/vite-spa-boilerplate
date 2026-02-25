@@ -100,6 +100,15 @@ function HeroSection() {
           </div>
           <a href="#how-it-works" className="btn-outlined">See How It Works</a>
         </div>
+        <div className="hero__video">
+          <iframe
+            src="https://www.youtube.com/embed/5fpGTE3aIw0"
+            title="BrainWave AI Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
       </div>
     </section>
   )
