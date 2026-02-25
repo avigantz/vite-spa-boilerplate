@@ -83,6 +83,13 @@ function NavBar() {
 function HeroSection() {
   return (
     <section className="hero">
+      <div className="hero__bg-video">
+        <iframe
+          src="https://www.youtube.com/embed/5fpGTE3aIw0?autoplay=1&mute=1&loop=1&playlist=5fpGTE3aIw0&controls=0&disablekb=1&playsinline=1&rel=0"
+          title="BrainWave AI Background Video"
+          allow="autoplay; encrypted-media"
+        />
+      </div>
       <div className="hero__content container">
         <span className="hero__eyebrow">Next-Gen Brain-Computer Interface</span>
         <h1 className="hero__headline">
@@ -99,15 +106,6 @@ function HeroSection() {
             <a href="#preorder" className="btn-filled">Pre-Order Now</a>
           </div>
           <a href="#how-it-works" className="btn-outlined">See How It Works</a>
-        </div>
-        <div className="hero__video">
-          <iframe
-            src="https://www.youtube.com/embed/5fpGTE3aIw0"
-            title="BrainWave AI Demo"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
         </div>
       </div>
     </section>
