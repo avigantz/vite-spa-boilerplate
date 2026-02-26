@@ -10,7 +10,10 @@
       "Bash(cd \"C:/Users/aviga/OneDrive/Documents/Dev-Projects/Claude-Code-Course\" && npm install 2>&1)",
       "Bash(cd \"C:/Users/aviga/OneDrive/Documents/Dev-Projects/Claude-Code-Course\" && npm run build 2>&1)",
       "Bash(cd \"C:/Users/aviga/OneDrive/Documents/Dev-Projects/Claude-Code-Course\" && npm run dev 2>&1)",
-      "Bash(cd C:\\\\Users\\\\aviga\\\\OneDrive\\\\Documents\\\\Dev-Projects\\\\Claude-Code-Course:*)"
+      "Bash(cd C:\\\\Users\\\\aviga\\\\OneDrive\\\\Documents\\\\Dev-Projects\\\\Claude-Code-Course:*)",
+      "Bash(cd:*)",
+      "Bash(cd \"C:\\\\Users\\\\aviga\\\\OneDrive\\\\Documents\\\\Dev-Projects\\\\Claude-Code-Course\" && npm run build 2>&1)",
+      "Bash(git:*)"
     ]
   }
 }
