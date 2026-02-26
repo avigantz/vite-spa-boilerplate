@@ -3,28 +3,30 @@
    ============================================================ */
 :root {
   /* Colors */
-  --color-bg-primary:    #000000;
-  --color-bg-secondary:  #0a0a0a;
-  --color-bg-card:       #141414;
-  --color-nav-bg:        rgba(0, 0, 0, 0.72);
-  --color-accent-blue:   #6366f1;
-  --color-accent-purple: #a855f7;
-  --color-accent-cyan:   #22d3ee;
-  --color-text-primary:  #ffffff;
+  --color-bg-primary:     #000000;
+  --color-bg-secondary:   #0a0a0a;
+  --color-bg-card:        #141414;
+  --color-nav-bg:         rgba(0, 0, 0, 0.72);
+  --color-accent-blue:    #7B61FF;
+  --color-accent-purple:  #A78BFA;
+  --color-accent-cyan:    #22d3ee;
+  --color-success:        #4CAF50;
+  --color-text-primary:   #ffffff;
   --color-text-secondary: rgba(255, 255, 255, 0.65);
-  --color-border:        rgba(255, 255, 255, 0.08);
+  --color-border:         rgba(255, 255, 255, 0.08);
 
   /* Typography */
-  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-base:    'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-display: 'Orbitron', 'Inter', sans-serif;
   --font-size-xs:     0.75rem;
   --font-size-sm:     0.875rem;
-  --font-size-base:   1rem;
-  --font-size-lg:     1.125rem;
-  --font-size-xl:     1.25rem;
-  --font-size-2xl:    1.5rem;
-  --font-size-3xl:    1.875rem;
-  --font-size-section: clamp(1.875rem, 4vw, 3rem);
-  --font-size-hero:   clamp(2.25rem, 7vw, 4.5rem);
+  --font-size-base:   1.125rem;
+  --font-size-lg:     1.25rem;
+  --font-size-xl:     1.375rem;
+  --font-size-2xl:    1.625rem;
+  --font-size-3xl:    2rem;
+  --font-size-section: clamp(2rem, 4vw, 3rem);
+  --font-size-hero:   clamp(2.75rem, 7vw, 5rem);
 
   /* Spacing */
   --space-1:  0.25rem;
@@ -51,6 +53,22 @@
 }
 
 /* ============================================================
+   High Contrast Mode
+   ============================================================ */
+@media (prefers-contrast: high) {
+  :root {
+    --color-bg-primary:    #000000;
+    --color-bg-secondary:  #050505;
+    --color-bg-card:       #0d0d0d;
+    --color-text-primary:  #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.9);
+    --color-border:        rgba(255, 255, 255, 0.35);
+    --color-accent-blue:   #9B81FF;
+    --color-accent-purple: #C4B5FD;
+  }
+}
+
+/* ============================================================
    Reset
    ============================================================ */
 *,
@@ -68,7 +86,7 @@ html {
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  line-height: 1.6;
+  line-height: 1.75;
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
   -webkit-font-smoothing: antialiased;
@@ -108,6 +126,19 @@ a {
 }
 
 /* ============================================================
+   Global Focus Styles
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================================
    Utility Classes
    ============================================================ */
 
@@ -133,26 +164,34 @@ a {
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 0.75rem 1.75rem;
+  padding: 0.875rem 2rem;
   border-radius: var(--radius-pill);
   border: none;
   font-size: var(--font-size-sm);
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   cursor: pointer;
   background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
-  color: var(--color-text-primary);
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  color: #ffffff;
+  transition: opacity var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
   white-space: nowrap;
+  min-height: 2.75rem;
 }
 
 .btn-filled:hover {
   opacity: 0.88;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(123, 97, 255, 0.45);
 }
 
 .btn-filled:active {
   transform: translateY(0);
+}
+
+.btn-filled:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
 /* Outlined pill button */
@@ -161,23 +200,25 @@ a {
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 0.75rem 1.75rem;
+  padding: 0.875rem 2rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   font-size: var(--font-size-sm);
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   cursor: pointer;
   background: transparent;
   color: var(--color-text-primary);
   transition: border-color var(--transition-normal), background var(--transition-normal), transform var(--transition-normal);
   white-space: nowrap;
+  min-height: 2.75rem;
 }
 
 .btn-outlined:hover {
-  border-color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.06);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .btn-outlined:active {
