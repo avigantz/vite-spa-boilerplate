@@ -1007,9 +1007,13 @@
     grid-template-columns: 1fr;
   }
 
-  /* Fix 100vh on Android (address bar makes 100vh taller than visible screen) */
+  /* Fix hero on Android: stop centering in a taller-than-viewport hero.
+     Flow content from the top with padding below the navbar instead. */
   .hero {
-    min-height: 100svh;
+    min-height: unset;
+    align-items: flex-start;
+    padding-top: calc(64px + 2.5rem);
+    padding-bottom: 3rem;
   }
 
   /* Timeline adjustments */
