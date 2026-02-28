@@ -1007,11 +1007,6 @@
     grid-template-columns: 1fr;
   }
 
-  /* Hide YouTube iframe — doesn't autoplay on Android and causes black overlay */
-  .hero__bg-video {
-    display: none;
-  }
-
   /* Fix 100vh on Android (address bar makes 100vh taller than visible screen) */
   .hero {
     min-height: 100svh;
