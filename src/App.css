@@ -967,9 +967,14 @@
     display: none;
   }
 
-  /* Show mobile menu */
+  /* Show mobile menu — position: absolute so it overlays content without
+     expanding the fixed navbar height (which caused the black void bug) */
   .mobile-menu {
     display: block;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
     visibility: hidden;
     opacity: 0;
     transform: translateY(-8px);

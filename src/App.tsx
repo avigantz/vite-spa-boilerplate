@@ -228,7 +228,7 @@ function NavBar() {
     <nav className="navbar" aria-label="Main navigation">
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <div className="container navbar__inner">
-        <span className="navbar__logo gradient-text" aria-label="BrainWave AI">BrainWave AI</span>
+        <span className="navbar__logo gradient-text" aria-label="BrainWave AI">BrainWave AI 😊</span>
         <ul className="navbar__links" role="list">
           <li><a href="#features">Features</a></li>
           <li><a href="#use-cases">Use Cases</a></li>
